@@ -1,0 +1,23 @@
+{
+  "database": ".remediation/memory.sqlite3",
+  "projects": {
+    "DEMO": {
+      "jenkins_url": "https://jenkins.example.internal",
+      "jobs": ["automation/api-tests", "automation/ui-tests"],
+      "report_prefix": "target/site/serenity",
+      "framework": "serenity-java-project-version",
+      "username_env": "JENKINS_USER",
+      "token_env": "JENKINS_TOKEN",
+      "ca_bundle": null,
+      "allowed_serenity_versions": [],
+      "redaction_patterns": [],
+      "related_tests": ["example.RelatedSmokeTest#smoke"],
+      "validation_job": "automation/remediation-validation",
+      "local_runner": {
+        "repo": "C:/path/to/test-repository",
+        "argv": ["mvn", "-B", "verify", "-Dtest={tests}", "-Dserenity.outputDirectory={report_dir}"],
+        "timeout": 900
+      }
+    }
+  }
+}
